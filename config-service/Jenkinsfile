@@ -15,9 +15,7 @@ node('dind-node') {
     stage('Image') {
       dir ('config-service') {
         docker.withRegistry('https://192.168.8.104:5000') {
-          def app = docker.build "rafurb/config-service:${env.version}"
-          app.push()
-          app.run()
+          docker.build "rafurb/config-service:${env.version}"
         }
       }
     }
