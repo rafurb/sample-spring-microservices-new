@@ -14,7 +14,7 @@ node('dind-node') {
     }
     stage('Image') {
       dir ('config-service') {
-        sh 'docker build -t rafurb/sample-spring-microservices-new'
+        sh 'docker build -t rafurb/sample-spring-microservices-new .'
         sh 'docker run  afurb/sample-spring-microservices-new'
       }
     }
