@@ -16,6 +16,7 @@ node('dind-node') {
       dir ('config-service') {
         docker.withRegistry('https://localhost1:5000') {
           def app = docker.build "rafurb/config-service:${env.version}"
+          app.push()
           app.run()
         }
       }
